@@ -1,0 +1,54 @@
+plugins {
+    id("com.android.library")
+    id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+}
+
+kotlin {
+    jvmToolchain(11)
+}
+
+android {
+    namespace = "com.github.siboxd.android.hilt.commons"
+
+    compileSdk = androidTargetSdkVersion.toInteger()
+
+    defaultConfig {
+        minSdk = androidMinSdkVersion.toInteger()
+        targetSdk = androidTargetSdkVersion.toInteger()
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
+    }
+
+    buildTypes {
+        release {
+            setMinifyEnabled(false)
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+            )
+        }
+    }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
+}
+
+dependencies {
+
+    // The library with which modules are built
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+
+    // Logging library for the "logging" exception handler
+    implementation("com.jakewharton.timber:timber:$timberVersion")
+
+    // Testing dependencies
+    testImplementation("junit:junit:$junitVersion")
+}
