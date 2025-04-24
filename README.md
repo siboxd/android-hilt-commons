@@ -33,7 +33,7 @@ Here it is the Table of Contents:
     dependencies {
     
         // Needed to add CoroutineExceptionHandlersModule, DispatchersModule, GlobalCoroutineScopeModule
-        implementation("com.github.siboxd.android.hilt.commons:coroutines-module:${latestVersion}")
+        implementation("com.github.siboxd:android-hilt-commons:${latestVersion}")
     }
     ```
 
