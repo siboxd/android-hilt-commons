@@ -1,5 +1,7 @@
 # Android Hilt Commons #
 
+[![](https://jitpack.io/v/siboxd/android-hilt-commons.svg)](https://jitpack.io/#siboxd/android-hilt-commons)
+
 This project makes available some common Dagger/[Hilt](https://dagger.dev/hilt/) *Modules* and
 relative annotations in order to reuse common set-up regarding `Dispatchers`, *Application* scoped
 `CoroutineScope` and `CoroutineExceptionHandler`s.
